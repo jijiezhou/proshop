@@ -4,11 +4,12 @@
  * @Author: ZJJ
  * @Date: 2023-10-04 00:09:12
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-04 00:26:34
+ * @LastEditTime: 2023-10-04 00:49:47
  */
 import { Row, Col } from "react-bootstrap";
 import products from "../products.js";
 import Product from "../components/Product.jsx";
+import React from "react";
 
 const HomeScreen = () => {
   return (
