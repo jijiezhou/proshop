@@ -4,17 +4,21 @@
  * @Author: ZJJ
  * @Date: 2023-10-03 22:45:42
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-03 22:58:33
+ * @LastEditTime: 2023-10-03 23:55:50
  */
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
+import logo from "../assets/logo.png";
 
 const Header = () => {
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
         <Container>
-          <Navbar.Brand href="/">Proshop</Navbar.Brand>
+          <Navbar.Brand href="/">
+            <img src={logo} alt="Proshop" />
+            Proshop
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
