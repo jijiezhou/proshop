@@ -4,15 +4,18 @@
  * @Author: ZJJ
  * @Date: 2023-10-04 23:17:50
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-04 23:49:41
+ * @LastEditTime: 2023-10-05 01:01:10
  */
 import express from "express";
 import products from "./data/products.js";
 import dotenv from "dotenv";
 dotenv.config();
+import connectDB from "./config/db.js";
 //const express = require('express')
 
 const port = process.env.PORT || 5000;
+
+connectDB(); // Connect to MongoDB
 
 const app = express();
 
