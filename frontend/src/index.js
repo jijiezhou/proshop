@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-03 22:27:46
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-04 00:58:38
+ * @LastEditTime: 2023-10-04 22:24:30
  */
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -18,11 +18,13 @@ import {
 import "./assets/styles/bootstrap.custom.css";
 import "./assets/styles/index.css";
 import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<HomeScreen />} />
+      <Route path="/product/:id" element={<ProductScreen />} />
     </Route>
   )
 );
