@@ -4,13 +4,15 @@
  * @Author: ZJJ
  * @Date: 2023-10-04 23:17:50
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-04 23:35:52
+ * @LastEditTime: 2023-10-04 23:49:41
  */
 import express from "express";
 import products from "./data/products.js";
+import dotenv from "dotenv";
+dotenv.config();
 //const express = require('express')
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 const app = express();
 
