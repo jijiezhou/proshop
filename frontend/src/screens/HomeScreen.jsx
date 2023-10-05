@@ -4,12 +4,13 @@
  * @Author: ZJJ
  * @Date: 2023-10-04 00:09:12
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-04 23:59:55
+ * @LastEditTime: 2023-10-05 00:04:29
  */
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product.jsx";
 import React from "react";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const HomeScreen = () => {
   const [products, setProducts] = useState([]);
