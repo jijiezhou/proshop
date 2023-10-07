@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-04 23:17:50
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-06 21:38:54
+ * @LastEditTime: 2023-10-06 22:23:04
  */
 /*
  * @Descripttion: ZJJ Code
@@ -19,6 +19,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoutes.js";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 //const express = require('express')
 
 const port = process.env.PORT || 5000;
@@ -32,5 +33,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/products", productRoutes);
+
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(port, () => console.log(`Server running on ${port}`));
