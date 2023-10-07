@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-07 00:25:54
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-07 00:30:35
+ * @LastEditTime: 2023-10-07 00:50:21
  */
 import { PRODUCTS_URL } from "../constants.js";
 import { apiSlice } from "./apiSlice.js";
@@ -17,7 +17,14 @@ export const productsApiSplice = apiSlice.injectEndpoints({
       }),
       keepUnusedDataFor: 5,
     }),
+    getProductDetails: builder.query({
+      query: (productId) => ({
+        url: `${PRODUCTS_URL}/${productId}`,
+      }),
+      keepUnusedDataFor: 5,
+    }),
   }),
 });
 
-export const { useGetProductsQuery } = productsApiSplice;
+export const { useGetProductsQuery, useGetProductDetailsQuery } =
+  productsApiSplice;
