@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-03 22:27:46
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-07 14:29:02
+ * @LastEditTime: 2023-10-07 19:29:41
  */
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -22,6 +22,7 @@ import "./assets/styles/index.css";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
       <Route index={true} path="/" element={<HomeScreen />} />
       <Route path="/product/:id" element={<ProductScreen />} />
       <Route path="/cart" element={<CartScreen />} />
+      <Route path="/login" element={<LoginScreen />} />
     </Route>
   )
 );
