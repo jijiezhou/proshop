@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-07 13:01:36
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-07 13:19:27
+ * @LastEditTime: 2023-10-07 13:33:29
  */
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -58,5 +58,5 @@ const cartSlice = createSlice({
 });
 
 //any function should export as action
-export const { addToCart } = cartSlice.action;
+export const { addToCart } = cartSlice.actions;
 export default cartSlice.reducer;
