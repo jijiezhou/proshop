@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-04 22:21:44
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-07 00:54:51
+ * @LastEditTime: 2023-10-07 01:11:57
  */
 import React from "react";
 import { Link, useParams } from "react-router-dom";
@@ -12,6 +12,8 @@ import { ListGroup } from "react-bootstrap";
 import { Row, Col, Image, Card, Button } from "react-bootstrap";
 import Rating from "../components/Rating";
 import { useGetProductDetailsQuery } from "../slices/productsApiSlice";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
@@ -27,9 +29,11 @@ const ProductScreen = () => {
         Go Back
       </Link>
       {isLoading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : isError ? (
-        <div>{isError?.data?.message || isError.error}</div>
+        <Message variant="danger">
+          {isError?.data?.message || isError.error}
+        </Message>
       ) : (
         <>
           <Row>

@@ -4,12 +4,14 @@
  * @Author: ZJJ
  * @Date: 2023-10-04 00:09:12
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-07 00:41:42
+ * @LastEditTime: 2023-10-07 01:11:48
  */
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product.jsx";
 import React from "react";
 import { useGetProductsQuery } from "../slices/productsApiSlice.js";
+import Loader from "../components/Loader.jsx";
+import Message from "../components/Message.jsx";
 
 const HomeScreen = () => {
   const { data: products, isLoading, isError } = useGetProductsQuery();
@@ -17,9 +19,11 @@ const HomeScreen = () => {
   return (
     <>
       {isLoading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : isError ? (
-        <div>{isError?.data?.message || isError.error}</div>
+        <Message variant="danger">
+          {isError?.data?.message || isError.error}
+        </Message>
       ) : (
         <>
           <h1>Latest Products</h1>
