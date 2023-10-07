@@ -4,9 +4,10 @@
  * @Author: ZJJ
  * @Date: 2023-10-06 20:28:52
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-06 21:11:33
+ * @LastEditTime: 2023-10-07 15:51:43
  */
 import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema(
   {
@@ -33,6 +34,11 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+//In the userSchema add a method called matchPassword, so we can use userModel in controller to call this method
+userSchema.methods.matchPassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
 
 const User = mongoose.model("User", userSchema);
 export default User;

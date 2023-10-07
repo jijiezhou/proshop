@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-04 23:17:50
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-07 15:25:52
+ * @LastEditTime: 2023-10-07 15:39:17
  */
 /*
  * @Descripttion: ZJJ Code
@@ -28,6 +28,10 @@ const port = process.env.PORT || 5000;
 connectDB(); // Connect to MongoDB
 
 const app = express();
+
+//Body parser middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("API is running...");
