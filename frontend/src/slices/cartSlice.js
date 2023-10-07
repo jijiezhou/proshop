@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-07 13:01:36
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-07 14:10:59
+ * @LastEditTime: 2023-10-07 14:55:47
  */
 /*
  * @Descripttion: ZJJ Code
@@ -40,9 +40,16 @@ const cartSlice = createSlice({
 
       return updateCart(state);
     },
+
+    removeFromCart: (state, action) => {
+      //if id is want we wanted, do not return
+      state.cartItems = state.cartItems.filter((x) => x._id !== action.payload);
+
+      return updateCart(state);
+    },
   },
 });
 
 //any function should export as action
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeFromCart } = cartSlice.actions;
 export default cartSlice.reducer;

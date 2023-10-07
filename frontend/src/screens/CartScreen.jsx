@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-07 14:26:02
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-07 14:52:28
+ * @LastEditTime: 2023-10-07 15:05:39
  */
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,7 +21,7 @@ import {
 import { FaTrash } from "react-icons/fa";
 import Message from "../components/Message";
 import React from "react";
-import { addToCart } from "../slices/cartSlice";
+import { addToCart, removeFromCart } from "../slices/cartSlice";
 
 const CartScreen = () => {
   const navigate = useNavigate();
@@ -33,6 +33,14 @@ const CartScreen = () => {
 
   const addToCartHandler = async (product, qty) => {
     dispatch(addToCart({ ...product, qty }));
+  };
+
+  const removeFromCartHandler = async (id) => {
+    dispatch(removeFromCart(id));
+  };
+
+  const checkOutHandler = () => {
+    navigate("/login?redirect=/shipping");
   };
 
   return (
@@ -71,7 +79,11 @@ const CartScreen = () => {
                     </Form.Control>
                   </Col>
                   <Col md={2}>
-                    <Button type="button" variant="light">
+                    <Button
+                      type="button"
+                      variant="light"
+                      onClick={() => removeFromCartHandler(item._id)}
+                    >
                       <FaTrash />
                     </Button>
                   </Col>
@@ -100,6 +112,7 @@ const CartScreen = () => {
                 type="button"
                 className="btn-block"
                 disabled={cartItems.length === 0}
+                onClick={() => checkOutHandler()}
               >
                 Proceed to checkout
               </Button>
