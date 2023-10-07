@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-04 00:09:12
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-05 00:04:29
+ * @LastEditTime: 2023-10-06 19:51:40
  */
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product.jsx";
@@ -30,7 +30,7 @@ const HomeScreen = () => {
       <Row>
         {products.map((product) => (
           <Col sm={12} md={6} lg={4} xl={3}>
-            <Product product={product} />
+            <Product product={product} key={product._id} />
           </Col>
         ))}
       </Row>
