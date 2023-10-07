@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-06 20:28:52
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-06 20:30:29
+ * @LastEditTime: 2023-10-06 21:11:33
  */
 import mongoose from "mongoose";
 
@@ -34,5 +34,5 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-const User = mongoose.Model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 export default User;

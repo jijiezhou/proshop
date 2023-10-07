@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-06 20:31:31
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-06 20:39:53
+ * @LastEditTime: 2023-10-06 21:11:49
  */
 import mongoose from "mongoose";
 
@@ -84,5 +84,5 @@ const orderSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const Order = mongoose.Model("Order", orderSchema);
+const Order = mongoose.model("Order", orderSchema);
 export default Order;
