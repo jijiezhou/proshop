@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-04 23:17:50
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-06 22:23:04
+ * @LastEditTime: 2023-10-07 15:25:52
  */
 /*
  * @Descripttion: ZJJ Code
@@ -19,6 +19,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 //const express = require('express')
 
@@ -33,6 +34,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
