@@ -4,15 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-07 15:14:04
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-07 18:51:21
- */
-/*
- * @Descripttion: ZJJ Code
- * @version: 1.0.0
- * @Author: ZJJ
- * @Date: 2023-10-07 15:14:04
- * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-07 15:20:09
+ * @LastEditTime: 2023-10-07 19:02:34
  */
 import asyncHandler from "../middleware/asyncHandler.js";
 import User from "../models/userModel.js";
@@ -28,7 +20,7 @@ const authUser = asyncHandler(async (req, res) => {
   if (user && (await user.matchPassword(password))) {
     generateToken(res, user._id);
 
-    res.json({
+    res.status(200).json({
       _id: user._id,
       name: user.name,
       email: user.email,
@@ -91,14 +83,49 @@ const logoutrUser = asyncHandler(async (req, res) => {
 // @route GET /api/users/profile
 // @access Private
 const getUserProfile = asyncHandler(async (req, res) => {
-  res.json("get user profile");
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
 });
 
 // @desc update user profile
 // @route PUT /api/users/profile
 // @access Private
 const updateUserProfile = asyncHandler(async (req, res) => {
-  res.json("update user profile");
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    //if there is name in body -> change the name in user otherwise remain the same
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+
+    //password is hashed
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
+
+    const updateUser = await user.save();
+
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
 });
 
 // @desc get users
