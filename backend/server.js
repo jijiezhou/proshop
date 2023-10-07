@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-04 23:17:50
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-07 15:39:17
+ * @LastEditTime: 2023-10-07 16:43:16
  */
 /*
  * @Descripttion: ZJJ Code
@@ -21,6 +21,7 @@ import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
+import cookieParser from "cookie-parser";
 //const express = require('express')
 
 const port = process.env.PORT || 5000;
@@ -32,6 +33,9 @@ const app = express();
 //Body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+//Cookie parse middleware -- acess to req.cookie.jwt
+app.use(cookieParser());
 
 app.get("/", (req, res) => {
   res.send("API is running...");
