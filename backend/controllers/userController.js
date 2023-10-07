@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-07 15:14:04
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-07 16:35:07
+ * @LastEditTime: 2023-10-07 18:26:42
  */
 /*
  * @Descripttion: ZJJ Code
@@ -62,7 +62,12 @@ const registerUser = asyncHandler(async (req, res) => {
 // @route POST /api/users/logout
 // @access Private
 const logoutrUser = asyncHandler(async (req, res) => {
-  res.json("logout user");
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    expires: new Date(0),
+  });
+
+  res.status(200).json({ message: "Logged out successfully" });
 });
 
 // @desc Get user profile
