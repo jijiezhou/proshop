@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-08 14:52:35
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-08 16:18:37
+ * @LastEditTime: 2023-10-09 23:47:07
  */
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -22,7 +22,7 @@ const LoginScreen = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  //test
   const [login, { isLoading }] = useLoginMutation();
 
   const { userInfo } = useSelector((state) => state.auth);
