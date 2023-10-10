@@ -24,7 +24,7 @@ const LoginScreen = () => {
   const navigate = useNavigate();
 
   const [login, { isLoading }] = useLoginMutation();
-  //test
+
   const { userInfo } = useSelector((state) => state.auth);
 
   const { search } = useLocation();
