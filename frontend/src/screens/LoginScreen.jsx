@@ -22,7 +22,7 @@ const LoginScreen = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  //test
+
   const [login, { isLoading }] = useLoginMutation();
 
   const { userInfo } = useSelector((state) => state.auth);
