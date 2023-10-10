@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-03 22:45:42
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-07 14:21:57
+ * @LastEditTime: 2023-10-08 15:45:58
  */
 import { Navbar, Nav, Container, Badge } from "react-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
@@ -41,7 +41,7 @@ const Header = () => {
                 </Nav.Link>
               </LinkContainer>
               <LinkContainer to="/login">
-                <Nav.Link href="/login">
+                <Nav.Link>
                   <FaUser />
                   Sign In
                 </Nav.Link>
