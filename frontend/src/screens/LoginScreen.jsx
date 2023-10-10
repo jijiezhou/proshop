@@ -4,7 +4,7 @@
  * @Author: ZJJ
  * @Date: 2023-10-08 14:52:35
  * @LastEditors: ZJJ
- * @LastEditTime: 2023-10-09 23:47:07
+ * @LastEditTime: 2023-10-09 23:49:37
  */
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -24,7 +24,7 @@ const LoginScreen = () => {
   const navigate = useNavigate();
 
   const [login, { isLoading }] = useLoginMutation();
-
+  //test
   const { userInfo } = useSelector((state) => state.auth);
 
   const { search } = useLocation();
